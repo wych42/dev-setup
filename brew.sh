@@ -190,6 +190,8 @@ brew cask install --appdir="/Applications" karabiner-elements
 brew cask install --appdir="/Applications" baiduinput
 brew cask install --appdir="/Applications" ghidra
 brew cask install --appdir="/Applications" setapp
+brew cask install --appdir="/Applications" little-snitch
+brew cask install --appdir="/Applications" devonthink
 
 #Remove comment to install LaTeX distribution MacTeX
 brew cask install --appdir="/Applications" mactex
