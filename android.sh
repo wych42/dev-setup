@@ -23,6 +23,7 @@ brew cask install --appdir="~/Applications" intellij-idea-ce
 brew cask install --appdir="~/Applications" android-studio
 
 brew install android-sdk
+brew cask install android-platform-tools
 
 # Remove outdated versions from the cellar.
 brew cleanup

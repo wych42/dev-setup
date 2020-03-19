@@ -21,6 +21,7 @@ brew update
 # Upgrade any already-installed formulae.
 brew upgrade --all
 
+# system tools [[[1
 # Install GNU core utilities (those that come with OS X are outdated).
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
 brew install coreutils
@@ -32,15 +33,8 @@ brew install moreutils
 brew install findutils
 # Install GNU `sed`, overwriting the built-in `sed`.
 brew install gnu-sed
-# Install Bash 4.
-brew install bash
-brew install bash-completion2
-# We installed the new shell, now we have to activate it
-echo "Adding the newly installed shell to the list of allowed shells"
-# Prompts for password
-sudo bash -c 'echo /usr/local/bin/bash >> /etc/shells'
-# Change to the new shell, prompts for password
-chsh -s /usr/local/bin/bash
+brew install zsh
+chsh -s /usr/local/bin/zsh
 
 # Install `wget` with IRI support.
 brew install wget --with-iri
@@ -60,22 +54,28 @@ brew install ruby-build
 brew install rbenv
 LINE='eval "$(rbenv init -)"'
 grep -q "$LINE" ~/.extra || echo "$LINE" >> ~/.extra
+# 1]]]
 
-# Install more recent versions of some OS X tools.
+# Install more recent versions of some OS X tools. [[[1
 brew install vim --override-system-vi
 brew install homebrew/dupes/grep
 brew install homebrew/dupes/openssh
 brew install homebrew/dupes/screen
 brew install homebrew/php/php55 --with-gmp
+# 1]]]
 
-# Install font tools.
+# Install font tools. [[[1
 brew tap bramstein/webfonttools
 brew install sfnt2woff
 brew install sfnt2woff-zopfli
 brew install woff2
+brew cask install font-meslo-nerd-font
+brew cask install font-iosevka-nerd-font-mono
+# 1]]]
 
-# Install some CTF tools; see https://github.com/ctfs/write-ups.
+# Install some CTF tools; see https://github.com/ctfs/write-ups. [[[1
 brew install aircrack-ng
+brew install apktool
 brew install bfg
 brew install binutils
 brew install binwalk
@@ -99,10 +99,12 @@ brew install tcptrace
 brew install ucspi-tcp # `tcpserver` etc.
 brew install homebrew/x11/xpdf
 brew install xz
+# 1]]]
 
-# Install other useful binaries.
+# Install other useful binaries. [[[1
 brew install ack
 brew install dark-mode
+brew install ffmpeg
 #brew install exiv2
 brew install git
 brew install git-lfs
@@ -110,15 +112,23 @@ brew install git-flow
 brew install git-extras
 brew install hub
 brew install imagemagick --with-webp
+brew install jq
 brew install lua
 brew install lynx
+brew install mas
+brew install ngrep
+brew install tcpdump
 brew install p7zip
 brew install pigz
+brew install plantuml
 brew install pv
 brew install rename
 brew install rhino
 brew install speedtest_cli
 brew install ssh-copy-id
+brew install sshfs
+brew install the_silver_searcher
+brew install tmux
 brew install tree
 brew install webkit2png
 brew install zopfli
@@ -130,44 +140,98 @@ brew install libxml2
 brew install libxslt
 brew link libxml2 --force
 brew link libxslt --force
+# 1]]]
 
-# Install Heroku
-brew install heroku/brew/heroku
-heroku update
-
-# Core casks
-brew cask install --appdir="/Applications" alfred
-brew cask install --appdir="~/Applications" iterm2
-brew cask install --appdir="~/Applications" java
-brew cask install --appdir="~/Applications" xquartz
-
-# Development tool casks
-brew cask install --appdir="/Applications" sublime-text
-brew cask install --appdir="/Applications" atom
-brew cask install --appdir="/Applications" virtualbox
-brew cask install --appdir="/Applications" vagrant
-brew cask install --appdir="/Applications" macdown
-
-# Misc casks
-brew cask install --appdir="/Applications" google-chrome
-brew cask install --appdir="/Applications" firefox
-brew cask install --appdir="/Applications" skype
-brew cask install --appdir="/Applications" slack
-brew cask install --appdir="/Applications" dropbox
-brew cask install --appdir="/Applications" evernote
+# casks [[[1
+# 效率工具
 brew cask install --appdir="/Applications" 1password
-#brew cask install --appdir="/Applications" gimp
-#brew cask install --appdir="/Applications" inkscape
+brew cask install --appdir="/Applications" 1password-cli
+brew cask install --appdir="/Applications" alfred
+brew cask install --appdir="/Applications" dropbox
+brew cask install --appdir="/Applications" hammerspoon
+
+# 文档&办公
+brew cask install --appdir="/Applications" evernote
+brew cask install --appdir="/Applications" microsoft-office
+brew cask install --appdir="/Applications" sketch
+cp ./bin/Sketch /Applications/Sketch.app/Contents/MacOS/Sketch # unlimited trial
+brew cask install --appdir="/Applications" skitch
+brew cask install --appdir="/Applications" tunnelblick
+
+# 开发工具
+brew cask install --appdir="/Applications" charles
+brew cask install --appdir="/Applications" dash
+brew cask install --appdir="/Applications" goland
+brew cask install --appdir="/Applications" iterm2
+brew cask install --appdir="~/Applications" java
+brew cask install --appdir="/Applications" pycharm
+brew cask install --appdir="/Applications" setapp
+brew cask install --appdir="/Applications" sublime-text
+brew cask install --appdir="/Applications" visual-studio-code
+brew cask install --appdir="/Applications" studio-3t
+brew cask install --appdir="/Applications" emacs-mac
+
+# 浏览器 & IM
+brew cask install --appdir="/Applications" dingtalk
+brew cask install --appdir="/Applications" firefox
+brew cask install --appdir="/Applications" microsoft-edge
+brew cask install --appdir="/Applications" google-chrome
+brew cask install --appdir="/Applications" telegram
+mas install 836500024 # wechat
+mas install 1189898970 # wechat work
+
+# 工具
+brew cask install --appdir="/Applications" clashx
+brew cask install --appdir="/Applications" iina
+brew cask install --appdir="/Applications" osxfuse
+brew cask install --appdir="/Applications" vmware-fusion
+brew cask install --appdir="/Applications" anki
+brew cask install --appdir="/Applications" karabiner-elements
+brew cask install --appdir="/Applications" baiduinput
+brew cask install --appdir="/Applications" ghidra
+brew cask install --appdir="/Applications" setapp
 
 #Remove comment to install LaTeX distribution MacTeX
-#brew cask install --appdir="/Applications" mactex
+brew cask install --appdir="/Applications" mactex
+# 1]]]
 
+# Core Dev tools [[[1
 # Install Docker, which requires virtualbox
 brew install docker
-brew install boot2docker
+
+brew install thrift
+brew install protobuf
+
+# golang [[[2
+brew install golang
+mkdir -p $HOME/go/{src,pkg,bin}
+
+# Install go tools.
+go get -u -v github.com/ramya-rao-a/go-outline
+go get -u -v github.com/acroca/go-symbols
+go get -u -v github.com/nsf/gocode
+go get -u -v github.com/rogpeppe/godef
+go get -u -v golang.org/x/tools/cmd/godoc
+go get -u -v github.com/zmb3/gogetdoc
+go get -u -v github.com/golang/lint/golint
+go get -u -v github.com/fatih/gomodifytags
+go get -u -v github.com/uudashr/gopkgs/cmd/gopkgs
+go get -u -v golang.org/x/tools/cmd/gorename
+go get -u -v sourcegraph.com/sqs/goreturns
+go get -u -v golang.org/x/tools/cmd/goimports
+go get -u -v github.com/cweill/gotests/...
+go get -u -v golang.org/x/tools/cmd/guru
+go get -u -v github.com/josharian/impl
+go get -u -v github.com/haya14busa/goplay/cmd/goplay
+go get -u -v github.com/uudashr/gopkgs/cmd/gopkgs
+go get -u -v github.com/davidrjenni/reftools/cmd/fillstruct
+# 2]]]
+# 1]]]
 
 # Install developer friendly quick look plugins; see https://github.com/sindresorhus/quick-look-plugins
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzip qlimagesize webpquicklook suspicious-package quicklookase qlvideo
 
 # Remove outdated versions from the cellar.
 brew cleanup
+
+# vim:fdm=marker:fmr=[[[,]]]
