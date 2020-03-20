@@ -10,6 +10,7 @@ echo "------------------------------"
 echo "Setting up pyenv."
 
 brew install pyenv
+brew install pyenv-virtualenv
 
 pyenv install 3.8.0
 
