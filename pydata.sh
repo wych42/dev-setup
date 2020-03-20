@@ -12,14 +12,13 @@ echo "Setting up pyenv."
 brew install pyenv
 
 pyenv install 3.8.0
+
+export PYTHON_VERSION=3.8.0
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 pyenv virtualenv 3.8.0 v3
 pyenv virtualenv 3.8.0 pydata
-
-pyenv install 2.7.17
-pyenv virtualenv 2.7.17 v2
-
-eval "$(pyenv init -)";
-eval "$(pyenv virtualenv-init -)"
 
 pyenv active pydata
 # Install Python data modules
@@ -38,5 +37,7 @@ pip install Flask
 pip install sqlalchemy
 pip install mysqlclient
 
+pyenv install 2.7.17
+pyenv virtualenv 2.7.17 v2
 echo "------------------------------"
 echo "Script completed."
