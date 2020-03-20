@@ -23,6 +23,7 @@ pyenv virtualenv 3.8.0 pydata
 
 pyenv active pydata
 # Install Python data modules
+pip install --upgrade pip
 pip install numpy
 pip install scipy
 pip install matplotlib
@@ -36,6 +37,7 @@ pip install "ipython[all]"
 pip install bokeh
 pip install Flask
 pip install sqlalchemy
+brew install mysql # provide mysql_config
 pip install mysqlclient
 
 pyenv install 2.7.17
