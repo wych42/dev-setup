@@ -165,6 +165,7 @@ brew cask install --appdir="/Applications" setapp
 brew cask install --appdir="/Applications" sublime-text
 brew cask install --appdir="/Applications" visual-studio-code
 brew cask install --appdir="/Applications" studio-3t
+brew tap railwaycat/emacsmacport
 brew cask install --appdir="/Applications" emacs-mac
 
 # 浏览器 & IM
