@@ -19,7 +19,7 @@ fi
 brew update
 
 # Upgrade any already-installed formulae.
-brew upgrade --all
+brew upgrade
 
 # system tools [[[1
 # Install GNU core utilities (those that come with OS X are outdated).
@@ -37,7 +37,7 @@ brew install zsh
 chsh -s /usr/local/bin/zsh
 
 # Install `wget` with IRI support.
-brew install wget --with-iri
+brew install wget
 
 # Install RingoJS and Narwhal.
 # Note that the order in which these are installed is important;
@@ -57,11 +57,7 @@ grep -q "$LINE" ~/.extra || echo "$LINE" >> ~/.extra
 # 1]]]
 
 # Install more recent versions of some OS X tools. [[[1
-brew install vim --override-system-vi
-brew install homebrew/dupes/grep
-brew install homebrew/dupes/openssh
-brew install homebrew/dupes/screen
-brew install homebrew/php/php55 --with-gmp
+brew install vim
 # 1]]]
 
 # Install font tools. [[[1
