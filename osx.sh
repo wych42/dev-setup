@@ -82,7 +82,7 @@ defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 defaults write NSGlobalDomain NSTextShowsControlCharacters -bool true
 
 # Disable Resume system-wide
-#defaults write com.apple.systempreferences NSQuitAlwaysKeepsWindows -bool false
+defaults write com.apple.systempreferences NSQuitAlwaysKeepsWindows -bool false
 
 # Disable automatic termination of inactive apps
 #defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
@@ -355,7 +355,7 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 defaults write com.apple.dock mouse-over-hilite-stack -bool true
 
 # Set the icon size of Dock items to 36 pixels
-defaults write com.apple.dock tilesize -int 36
+defaults write com.apple.dock tilesize -int 28
 
 # Change minimize/maximize window effect
 defaults write com.apple.dock mineffect -string "scale"
@@ -399,7 +399,7 @@ defaults write com.apple.dock autohide-delay -float 0
 defaults write com.apple.dock autohide-time-modifier -float 0
 
 # Automatically hide and show the Dock
-defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock autohide -bool false
 
 # Make Dock icons of hidden applications translucent
 #defaults write com.apple.dock showhidden -bool true
