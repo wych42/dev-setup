@@ -201,6 +201,8 @@ brew install docker
 brew install thrift
 brew install protobuf
 
+brew install twpayne/taps/chezmoi
+
 # golang [[[2
 brew install golang
 mkdir -p $HOME/go/{src,pkg,bin}
