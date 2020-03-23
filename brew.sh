@@ -65,6 +65,7 @@ brew tap bramstein/webfonttools
 brew install sfnt2woff
 brew install sfnt2woff-zopfli
 brew install woff2
+brew tap homebrew/cask-fonts
 brew cask install font-meslo-nerd-font
 brew cask install font-iosevka-nerd-font-mono
 # 1]]]
@@ -150,7 +151,6 @@ brew cask install --appdir="/Applications" hammerspoon
 brew cask install --appdir="/Applications" evernote
 brew cask install --appdir="/Applications" microsoft-office
 brew cask install --appdir="/Applications" sketch
-cp ./bin/Sketch /Applications/Sketch.app/Contents/MacOS/Sketch # unlimited trial
 brew cask install --appdir="/Applications" skitch
 brew cask install --appdir="/Applications" tunnelblick
 
